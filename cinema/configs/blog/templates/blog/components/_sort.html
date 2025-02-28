@@ -1,0 +1,19 @@
+{% load blog_tags %}
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+       aria-expanded="false">
+        Filters
+    </a>
+    <ul class="dropdown-menu">
+        <!-- Reset filter -->
+        <li><a class="dropdown-item" href="{% url 'index' %}">Reset filter</a></li>
+
+        <!-- Sort options -->
+        {% get_sorters as sorters %}
+        {% for key, value in sorters.items %}
+        <li><a class="dropdown-item" href="?sort={{ key }}">{{ value }}</a></li>
+        {% endfor %}
+    </ul>
+</li>
+

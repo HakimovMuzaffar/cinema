@@ -1,0 +1,12 @@
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+       aria-expanded="false">
+        Categories
+    </a>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="{% url 'index' %}">All cinema</a></li>
+        {% for category in categories %}
+        <li><a class="dropdown-item" href="{% url 'category' category.pk %}">{{ category.title }}</a></li>
+        {% endfor %}
+    </ul>
+</li>

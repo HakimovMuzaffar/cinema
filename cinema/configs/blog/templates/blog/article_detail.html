@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+
+{% block main %}
+<div class="container d-flex justify-content-between pt-5 pb-5">
+    <div class="col-6">
+        <div class="card border border-dark bg-dark text-warning">
+            <div class="card-header d-flex justify-content-between bg-dark text-light">
+                <div class="d-flex align-items-center">
+                    <b>{{ article.category }}</b>
+                </div>
+                <div>
+                    <a href="{% url 'index' %}" class="btn btn-outline-primary">Back</a>
+                    <a href="" class="btn btn-outline-danger">Delete</a>
+                    <a href="{% url 'update' article.id %}" class="btn btn-outline-warning">Edit</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <img class="card-img-top" src="{{ article.get_photo }}" alt="">
+                <h3 class="card-title text-center mt-3">
+                    {{ article.title }}
+                </h3>
+                <p class="card-text">
+                    {{ article.description|linebreaks }}
+                </p>
+            </div>
+            <div class="card-footer d-flex justify-content-between bg-dark text-light">
+                <div>
+                    <b>{{ article.updated_at }}</b>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-5">
+        {% for article in articles %}
+        <div class="mb-4">
+            {% include 'blog/components/_cards.html' %}
+        </div>
+        {% endfor %}
+    </div>
+
+
+</div>
+
+{% endblock main %}

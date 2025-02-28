@@ -1,0 +1,41 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'blog/css/register.css' %}">
+
+<body>
+<div style="width: 25%; margin-left: 37%; margin-top: 5%;" class="container">
+    <div class="card">
+        <h3 class="title">Register</h3>
+        <p style="font-family: sans-serif;" class="subtitle">Signup now and get full access to our app.</p>
+
+        <form action="" method="post">
+            {% csrf_token %}
+
+            <div class="input-container">
+                {{ form.username }}
+            </div>
+            <div class="input-container">
+                {{ form.first_name }}
+            </div>
+            <div class="input-container">
+                {{ form.last_name }}
+            </div>
+            <div class="input-container">
+                {{ form.email }}
+            </div>
+            <div class="input-container">
+                {{ form.password1 }}
+            </div>
+            <div class="input-container">
+                {{ form.password2 }}
+            </div>
+
+            <button class="btn">Submit</button>
+        </form>
+
+        <p style="font-family: sans-serif;" class="footer-text">Already have an account? <a style="color: #fa9c05;"
+                                                                                            href="{% url 'login' %}">Sign
+            in</a></p>
+    </div>
+</div>
+</body>
+

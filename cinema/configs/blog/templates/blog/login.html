@@ -1,0 +1,27 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'blog/css/login.css' %}">
+
+
+
+<div style="width: 25%; margin-left: 37%; margin-top: 11%;" class="container">
+    <div class="card">
+        <h3 class="title">Login</h3>
+        <p style="font-family: sans-serif;" class="subtitle">Enter your details to continue</p>
+
+        <form action="" method="post">
+            {% csrf_token %}
+
+            <div class="input-container">
+                {{ form.username }}
+            </div>
+            <div class="input-container">
+                {{ form.password }}
+            </div>
+
+            <button class="btn">Login</button>
+        </form>
+
+        <p style="font-family: sans-serif;" class="footer-text">Don't have an account? <a
+                style="font-family: sans-serif; color: #fa9c05;" href="{% url 'register' %}">Register</a></p>
+    </div>
+</div>
